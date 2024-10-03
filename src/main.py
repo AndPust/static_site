@@ -1,7 +1,7 @@
 print("hello world")
 
 from textnode import TextNode
-from gencontent import generate_page
+from gencontent import generate_pages_recursive
 import os, shutil
 
 def clean_directory(dir):
@@ -46,12 +46,15 @@ def main():
     clean_directory("./public")
     rec_copy("./static", "./public")
 
-    print("Generating page ->")
-    generate_page(
-        os.path.join("./content", "index.md"),
-        "./template.html",
-        os.path.join("./public", "index.html")
-    )
+    # print("Generating page ->")
+    # generate_page(
+    #     os.path.join("./content", "index.md"),
+    #     "./template.html",
+    #     os.path.join("./public", "index.html")
+    # )
+
+    print("Generating content...")
+    generate_pages_recursive("./content", "./template.html", "./public")
 
 if __name__ == "__main__":
     main()
