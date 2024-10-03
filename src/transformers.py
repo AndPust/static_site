@@ -74,7 +74,7 @@ def split_nodes_link(text):
         return []
     
     if len(extract_markdown_links("   ".join([t.text for t in text]))) == 0:
-        return []
+        return text
 
     l = []
 
@@ -114,7 +114,7 @@ def split_nodes_image(text):
         return []
     
     if len(extract_markdown_images("   ".join([t.text for t in text]))) == 0:
-        return []
+        return text
 
     l = []
 
@@ -146,13 +146,22 @@ def split_nodes_image(text):
     return l
 
 def text_to_textnodes(text):
+    # print(text)
     nodes = [TextNode(text=text, text_type="text")]
 
+    # print(nodes)
+
     nodes = split_nodes_image(nodes)
+    # print(nodes)
     nodes = split_nodes_link(nodes)
+    # print(nodes)
 
     nodes = split_nodes_delimiter(nodes, "**", "bold")
+    # print(nodes)
     nodes = split_nodes_delimiter(nodes, "*", "italic")
+    # print(nodes)
     nodes = split_nodes_delimiter(nodes, "`", "code")
+
+    # print(nodes)
 
     return nodes
