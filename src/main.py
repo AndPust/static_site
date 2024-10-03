@@ -1,6 +1,7 @@
 print("hello world")
 
 from textnode import TextNode
+from gencontent import generate_page
 import os, shutil
 
 def clean_directory(dir):
@@ -45,7 +46,12 @@ def main():
     clean_directory("./public")
     rec_copy("./static", "./public")
 
-
+    print("Generating page ->")
+    generate_page(
+        os.path.join("./content", "index.md"),
+        "./template.html",
+        os.path.join("./public", "index.html")
+    )
 
 if __name__ == "__main__":
     main()
