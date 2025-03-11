@@ -91,7 +91,7 @@ This is **bolded** paragraph
 text in a p
 tag here
 
-This is another paragraph with *italic* text and `code` here
+This is another paragraph with _italic_ text and `code` here
 
 """
 
@@ -106,7 +106,7 @@ This is another paragraph with *italic* text and `code` here
         md = """
 - This is a list
 - with items
-- and *more* items
+- and _more_ items
 
 1. This is an `ordered` list
 2. with items

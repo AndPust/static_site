@@ -222,7 +222,7 @@ class TestTransformFunction(unittest.TestCase):
         text_type_italic = "italic"
         text_type_image = "image"
         text_type_code = "code"
-        text = "This is **text** with an *italic* word and a `code block` and an ![obi wan image](https://i.imgur.com/fJRm4Vk.jpeg) and a [link](https://boot.dev)"
+        text = "This is **text** with an _italic_ word and a `code block` and an ![obi wan image](https://i.imgur.com/fJRm4Vk.jpeg) and a [link](https://boot.dev)"
 
         nodes = text_to_textnodes(text)
 
