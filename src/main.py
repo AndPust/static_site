@@ -48,8 +48,10 @@ def main():
     if len(sys.argv) > 1 and isinstance(sys.argv[1], str):
         basepath = sys.argv[1]
 
-    clean_directory("./public")
-    rec_copy("./static", "./public")
+    clean_directory("./docs")
+    rec_copy("./static", "./docs")
+
+    print(basepath)
 
     # print("Generating page ->")
     # generate_page(
