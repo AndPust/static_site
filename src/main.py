@@ -3,6 +3,7 @@ print("hello world")
 from textnode import TextNode
 from gencontent import generate_pages_recursive
 import os, shutil
+import sys
 
 def clean_directory(dir):
     if not os.path.exists(dir):
@@ -39,9 +40,13 @@ def rec_copy(from_dir, to_dir):
 
 def main():
 
-    n = TextNode("Abcd", "", "http://tarnow.pl")
+    # n = TextNode("Abcd", "", "http://tarnow.pl")
 
-    print(n)
+    # print(n)
+
+    basepath = "/"
+    if len(sys.argv) > 1 and isinstance(sys.argv[1], str):
+        basepath = sys.argv[1]
 
     clean_directory("./public")
     rec_copy("./static", "./public")
@@ -54,7 +59,8 @@ def main():
     # )
 
     print("Generating content...")
-    generate_pages_recursive("./content", "./template.html", "./public")
+    # generate_pages_recursive("./content", "./template.html", "./public")
+    generate_pages_recursive("./content", "./template.html", "./docs", basepath)
 
 if __name__ == "__main__":
     main()
